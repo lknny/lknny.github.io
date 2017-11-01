@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>细节和耐心 | toto</title>
+  <title>新工作的一些思考 | toto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="持续的不安定因素，各方面侵袭着我。越是心烦，越是意乱，乱要出错，错要弥补。所以，保持耐心，注重细节，仍然是现在的我，最需要的。  细节事出有因，前段时间，做了个接口。主要实现对已有对象A的扩展，并返回扩展后对象（Json）。    第一版我首先想到的就是新建个Bean承载扩展后对象，并对对象A实施Copy，当然处理细节很多，此处省略。问题：  已有A在类结构变动时，势必会影响我新建的Bean，这">
-<meta name="keywords" content="life,thinking,随笔">
+  <meta name="description" content="首先，为什么">
+<meta name="keywords" content="life">
 <meta property="og:type" content="article">
-<meta property="og:title" content="细节和耐心">
-<meta property="og:url" content="http://www.lknny.com/2017/05/31/细节和耐心/index.html">
+<meta property="og:title" content="新工作的一些思考">
+<meta property="og:url" content="http://www.lknny.com/2017/11/01/新工作的一些思考/index.html">
 <meta property="og:site_name" content="toto">
-<meta property="og:description" content="持续的不安定因素，各方面侵袭着我。越是心烦，越是意乱，乱要出错，错要弥补。所以，保持耐心，注重细节，仍然是现在的我，最需要的。  细节事出有因，前段时间，做了个接口。主要实现对已有对象A的扩展，并返回扩展后对象（Json）。    第一版我首先想到的就是新建个Bean承载扩展后对象，并对对象A实施Copy，当然处理细节很多，此处省略。问题：  已有A在类结构变动时，势必会影响我新建的Bean，这">
-<meta property="og:updated_time" content="2017-11-01T02:01:49.000Z">
+<meta property="og:description" content="首先，为什么">
+<meta property="og:updated_time" content="2017-11-01T02:07:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="细节和耐心">
-<meta name="twitter:description" content="持续的不安定因素，各方面侵袭着我。越是心烦，越是意乱，乱要出错，错要弥补。所以，保持耐心，注重细节，仍然是现在的我，最需要的。  细节事出有因，前段时间，做了个接口。主要实现对已有对象A的扩展，并返回扩展后对象（Json）。    第一版我首先想到的就是新建个Bean承载扩展后对象，并对对象A实施Copy，当然处理细节很多，此处省略。问题：  已有A在类结构变动时，势必会影响我新建的Bean，这">
+<meta name="twitter:title" content="新工作的一些思考">
+<meta name="twitter:description" content="首先，为什么">
   
     <link rel="alternative" href="/atom.xml" title="toto" type="application/atom+xml">
   
@@ -196,11 +196,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-细节和耐心" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-新工作的一些思考" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/31/细节和耐心/" class="article-date">
-  	<time datetime="2017-05-31T15:00:15.000Z" itemprop="datePublished">2017-05-31</time>
+      <a href="/2017/11/01/新工作的一些思考/" class="article-date">
+  	<time datetime="2017-11-01T01:57:30.000Z" itemprop="datePublished">2017-11-01</time>
 </a>
     </div>
   
@@ -213,7 +213,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      细节和耐心
+      新工作的一些思考
     </h1>
   
 
@@ -222,7 +222,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thinking/">thinking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
 	</div>
 
         
@@ -237,37 +237,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>持续的不安定因素，各方面侵袭着我。越是心烦，越是意乱，乱要出错，错要弥补。所以，保持耐心，注重细节，仍然是现在的我，最需要的。</p>
-</blockquote>
-<h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><p>事出有因，前段时间，做了个接口。主要实现对已有对象A的扩展，并返回扩展后对象（Json）。  </p>
-<ul>
-<li><p>第一版<br>我首先想到的就是新建个Bean承载扩展后对象，并对对象A实施Copy，当然处理细节很多，此处省略。<br>问题：</p>
-<ul>
-<li>已有A在类结构变动时，势必会影响我新建的Bean，这样就要维护两套POJO</li>
-<li>新增一个不稳定的接口，却要加好几个POJO，服务维护代码量增加</li>
-</ul>
-</li>
-<li><p>第二版<br>全部Json化处理，将扩展信息插入到已经Json化的字符串中，并返回。<br>问题：</p>
-<ul>
-<li>效率比第一种方式低很多</li>
-<li>处理较为复杂</li>
-</ul>
-</li>
-</ul>
-<p>两种方式我都实现了，并且花费了一定时间对第二种方案进行优化，但是结果并不尽如人意，尤其是在PaaS平台上。最终接口，还是变更了方案，降低了Json的数据量，效率问题不在是瓶颈。<br>这个任务，让我发现我很多细节处理并不好，尤其是涉及到大数据量时，代码细节至关重要。如这次，我涉及的问题：</p>
-<ul>
-<li>循环内new不变对象</li>
-<li>StringBuilder并未对容量进行评估，导致频繁扩容</li>
-<li>Gson转化对象时一些细节</li>
-</ul>
-<h4 id="耐心"><a href="#耐心" class="headerlink" title="耐心"></a>耐心</h4><p>另一个故事，最近主持开发了模型检查工具，规则多而细，整个框架设计加规则实现，耗费了我将近两个周时间，期间还要花费大把时间跟产品沟通规则，帮产品检查模型（其实他们自己也可以做）。<br>并且，对已有FT和UT涉及的模型，还要做合并和改造，这个工作量太大。<br>导致前几天有些浮躁了，有点小情绪，说实话，我并不喜欢改模型，虽然我很擅长这个。还和BA在模型上意见产生了分歧，导致模型的事暂且搁置了。<br>现在回头看这个事，其实就是浮躁。尤其是原来同事离职后，让我深深思考了下人生。</p>
-<hr>
-<blockquote>
-<p>所以，还是要保持耐心，注重细节。毕竟，我是要成为架构师的程序员=..=</p>
-</blockquote>
-<p>2017/5/31 23:36:38 </p>
-
+        <h3 id="首先，为什么"><a href="#首先，为什么" class="headerlink" title="首先，为什么"></a>首先，为什么</h3>
       
     </div>
     
@@ -276,18 +246,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/11/01/新工作的一些思考/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          新工作的一些思考
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/22/回顾2016/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的2016</div>
+    <a href="/2017/05/31/细节和耐心/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">细节和耐心</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -316,7 +277,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="细节和耐心" data-title="细节和耐心" data-url="http://www.lknny.com/2017/05/31/细节和耐心/"></div>
+	<div class="ds-thread" data-thread-key="新工作的一些思考" data-title="新工作的一些思考" data-url="http://www.lknny.com/2017/11/01/新工作的一些思考/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
