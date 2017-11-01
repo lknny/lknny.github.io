@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HashMap | toto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java最基本的数据结构有数组和链表。数组的特点是空间连续（大小固定）、寻址迅速，但是插入和删除时需要移动元素，所以查询快，增加删除慢。链表恰好相反，可动态增加或减少空间以适应新增和删除元素，但查找时只能顺着一个个节点查找，所以增加删除快，查找慢。那么问题来了，有没有一种综合数组和链表优点的数据结构呢？">
+<meta name="keywords" content="java,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HashMap">
+<meta property="og:url" content="http://www.lknny.com/2015/09/06/HashMap/index.html">
+<meta property="og:site_name" content="toto">
+<meta property="og:description" content="Java最基本的数据结构有数组和链表。数组的特点是空间连续（大小固定）、寻址迅速，但是插入和删除时需要移动元素，所以查询快，增加删除慢。链表恰好相反，可动态增加或减少空间以适应新增和删除元素，但查找时只能顺着一个个节点查找，所以增加删除快，查找慢。那么问题来了，有没有一种综合数组和链表优点的数据结构呢？">
+<meta property="og:image" content="http://www.lknny.com/img/hashmap.png">
+<meta property="og:updated_time" content="2015-10-15T12:39:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HashMap">
+<meta name="twitter:description" content="Java最基本的数据结构有数组和链表。数组的特点是空间连续（大小固定）、寻址迅速，但是插入和删除时需要移动元素，所以查询快，增加删除慢。链表恰好相反，可动态增加或减少空间以适应新增和删除元素，但查找时只能顺着一个个节点查找，所以增加删除快，查找慢。那么问题来了，有没有一种综合数组和链表优点的数据结构呢？">
+<meta name="twitter:image" content="http://www.lknny.com/img/hashmap.png">
+  
+    <link rel="alternative" href="/atom.xml" title="toto" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/lknny.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/thief.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">toto</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Never stop believing in yourself</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://www.github.com/lknny" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lknny" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/lknny" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/funny/" style="font-size: 10px;">funny</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/leetcode/" style="font-size: 11.67px;">leetcode</a> <a href="/tags/life/" style="font-size: 20px;">life</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/thinking/" style="font-size: 16.67px;">thinking</a> <a href="/tags/thread/" style="font-size: 11.67px;">thread</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/随笔/" style="font-size: 18.33px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/">博客园</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.github.com/">Github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我就是我, 是颜色不一样的烟火, 天空海阔, 要做最坚强的泡沫…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">toto</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+		
+			<div class="profilepic">
+				<img lazy-src="/img/thief.jpg" class="js-avatar">
+								
+			</div>
+			
+			
+			<hgroup>
+			  <h1 class="header-author">toto</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Never stop believing in yourself</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://www.github.com/lknny" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lknny" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/lknny" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-HashMap" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/06/HashMap/" class="article-date">
+  	<time datetime="2015-09-06T11:45:38.000Z" itemprop="datePublished">2015-09-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HashMap
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/java/">java</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java最基本的数据结构有数组和链表。<br>数组的特点是空间连续（大小固定）、寻址迅速，但是插入和删除时需要移动元素，所以查询快，增加删除慢。<br>链表恰好相反，可动态增加或减少空间以适应新增和删除元素，但查找时只能顺着一个个节点查找，所以增加删除快，查找慢。<br>那么问题来了，有没有一种综合数组和链表优点的数据结构呢？<br><a id="more"></a><br>The answer is HashMap!</p>
+<h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><p>首先看看HashMap是怎么个存储方式，<strong>下图无明确作者，在此不添加Reference了！</strong> <em>尊重原创！</em></p>
+<p><img src="/img/hashmap.png" alt="">  </p>
+<p>如图，hash表就是由数据+链表组成的。首先数组每个元素存储一个链表节点，通过一定算法，比如<code>hash(key)%length</code><br>来存储后续的节点，比如31%16=15，就放到元素15开头的链表中。</p>
+<hr>
+<p>看了HashMap的源码，其实HashMap是基于一个线性的数组结构来实现的：<br>o n e： HashMap内部定义了一个Entry<k,v>数组<br>t w o： <code>static class Entry&lt;k,v&gt; implements Map&lt;k,v&gt;</code>,并且具有key/value/next等属性,类似JavaBean<br>three： 也就是，Entry[]数据存储了Map<k,v>这种结构的数据</k,v></k,v></p>
+<hr>
+<p>分析一段源码，来自HashMap中的put()方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (key == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> putForNullKey(value);</div><div class="line">        <span class="keyword">int</span> hash = hash(key.hashCode());</div><div class="line">        <span class="keyword">int</span> i = indexFor(hash, table.length);</div><div class="line">        <span class="keyword">for</span> (Entry&lt;K,V&gt; e = table[i]; e != <span class="keyword">null</span>; e = e.next) &#123;</div><div class="line">            Object k;</div><div class="line">            <span class="keyword">if</span> (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) &#123;</div><div class="line">                V oldValue = e.value;</div><div class="line">                e.value = value;</div><div class="line">                e.recordAccess(<span class="keyword">this</span>);</div><div class="line">                <span class="keyword">return</span> oldValue;</div><div class="line">           &#125;</div><div class="line">        &#125; </div><div class="line">      modCount++; </div><div class="line">      addEntry(hash, key, value, i);</div><div class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>其实思路并不复杂，通过一个hash算法得到hash值，通过hash值得到Entry数组下标index，然后找到数组位置，通过链式结构匹配Key值，get it！<br>那么，问题在这，这是源码里的hash算法：<br><code>static int hash(int h) {
+         h ^= (h &gt;&gt;&gt; 20) ^ (h &gt;&gt;&gt; 12);
+         return h ^ (h &gt;&gt;&gt; 7) ^ (h &gt;&gt;&gt; 4);
+    }</code><br><em>我真是惊呆了，费脑筋~</em><br>虽然能猜出来其作用，大体大概是防止hash冲突，但是具体为什么这样，而不是那样，我解释不清楚了=。=！<br>计算index的方法，倒是很清新，用到了效率最高的位运算，其中length-1防止数组越界：<br><code>static int indexFor(int h, int length) {
+         return h &amp; (length-1);
+     }</code></p>
+<hr>
+<p>另，解决hash冲突的方法：</p>
+<ol>
+<li>开放定址法（线性探测再散列，二次探测再散列，伪随机探测再散列）</li>
+<li>再哈希法</li>
+<li>链地址法</li>
+<li>建立一个公共溢出区</li>
+</ol>
+<p><strong>显然</strong>HashMap采用的是<strong>链地址法</strong></p>
+<hr>
+<p><em>EOF</em></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/06/Git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Git
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/05/Thread2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Thread_Part2</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="HashMap" data-title="HashMap" data-url="http://www.lknny.com/2015/09/06/HashMap/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"lknny"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		2017 all by toto
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">&copy; Hexo</a>  
+	        <br>
+		<a href="https://github.com/litten/hexo-theme-yilia" target="_blank">&copy; yilia</a> 
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="���ض���"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+  </div>
+</body>
+</html>

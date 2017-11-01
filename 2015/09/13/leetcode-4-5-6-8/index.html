@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>leetcode 4_5_6_8 | toto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Median of Two Sorted ArraysThere are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).大意">
+<meta name="keywords" content="算法,leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode 4_5_6_8">
+<meta property="og:url" content="http://www.lknny.com/2015/09/13/leetcode-4-5-6-8/index.html">
+<meta property="og:site_name" content="toto">
+<meta property="og:description" content="Median of Two Sorted ArraysThere are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).大意">
+<meta property="og:updated_time" content="2015-10-15T12:40:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="leetcode 4_5_6_8">
+<meta name="twitter:description" content="Median of Two Sorted ArraysThere are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).大意">
+  
+    <link rel="alternative" href="/atom.xml" title="toto" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/lknny.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/thief.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">toto</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Never stop believing in yourself</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://www.github.com/lknny" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/lknny" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/lknny" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Design-Pattern/" style="font-size: 10px;">Design Pattern</a> <a href="/tags/blog/" style="font-size: 11.67px;">blog</a> <a href="/tags/english/" style="font-size: 10px;">english</a> <a href="/tags/funny/" style="font-size: 10px;">funny</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/leetcode/" style="font-size: 11.67px;">leetcode</a> <a href="/tags/life/" style="font-size: 20px;">life</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/photo/" style="font-size: 10px;">photo</a> <a href="/tags/thinking/" style="font-size: 16.67px;">thinking</a> <a href="/tags/thread/" style="font-size: 11.67px;">thread</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/随笔/" style="font-size: 18.33px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/">博客园</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.github.com/">Github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我就是我, 是颜色不一样的烟火, 天空海阔, 要做最坚强的泡沫…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">toto</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+		
+			<div class="profilepic">
+				<img lazy-src="/img/thief.jpg" class="js-avatar">
+								
+			</div>
+			
+			
+			<hgroup>
+			  <h1 class="header-author">toto</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Never stop believing in yourself</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://www.github.com/lknny" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/lknny" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/lknny" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-leetcode-4-5-6-8" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/13/leetcode-4-5-6-8/" class="article-date">
+  	<time datetime="2015-09-13T08:32:49.000Z" itemprop="datePublished">2015-09-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      leetcode 4_5_6_8
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Median-of-Two-Sorted-Arrays"><a href="#Median-of-Two-Sorted-Arrays" class="headerlink" title="Median of Two Sorted Arrays"></a>Median of Two Sorted Arrays</h2><p>There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).<br><em>大意：求两个有序数组的中位数(中位数：奇数个即为中间数，偶数个为中间2个数均值)</em><br><a id="more"></a><br>解法1:(不考虑time complexity)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays2</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> alen=a.length;</div><div class="line">	<span class="keyword">int</span> blen=b.length;</div><div class="line">	<span class="keyword">int</span>[] result=<span class="keyword">new</span> <span class="keyword">int</span>[alen+blen];</div><div class="line">	System.arraycopy(a, <span class="number">0</span>, result, <span class="number">0</span>, alen);</div><div class="line">	System.arraycopy(b, <span class="number">0</span>, result, alen, blen);</div><div class="line">	Arrays.sort(result);</div><div class="line">	&gt;&gt;Arrays.parallelSort(result);并行排序在数量大于<span class="number">10</span>K时，将明显体现&lt;&lt;</div><div class="line">	<span class="keyword">int</span> mid=result.length/<span class="number">2</span>;</div><div class="line">	<span class="keyword">if</span> ((result.length)%<span class="number">2</span>!=<span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">return</span> (<span class="keyword">double</span>)result[mid];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> ((<span class="keyword">double</span>)result[mid]+(<span class="keyword">double</span>)result[mid-<span class="number">1</span>])/<span class="number">2</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解法2：(考虑time complexity)<br>思路：<br>扩展为2个有序数组，求第K小的数，median是此情况特例。<br>寻找第K小的数(Kth)，假如数组均是升序排列，中位数(奇数个即中间的数，偶数个是中间2个数的平均值)<br>几个步骤，暂不考虑b[index]的游标index如何更合适：</p>
+<ol>
+<li>将2个数组按长短分为a[0,1,…,m-1],b[0,1,….,n-1],其中n&gt;=m</li>
+<li>分治法，将K/2，比较a[k/2-1]和b[k/2-1],第k小，即合并并后数组ab[k-1]!</li>
+<li>三种情况，</li>
+</ol>
+<blockquote>
+<p>一： a[k/2-1]==b[k/2-1]，则a[k/2-1]==b[k/2-1]==第k小的数  </p>
+<p>二： a[k/2-1]&lt; b[k/2-1],则a[0,…,k/2-1]中Kth必然不在此，因为a[0,…,k/2-1]加上b[0,…,k/2-1]总共才k个数，而a[k/2-1]&lt;b[k/2-1]，也就是Kth只可能存在a[k/2,..,m-1]和b[0,…,n-1]中  </p>
+<p>三： a[k/2-1]&gt; b[k/2-1],则b[0,…,k/2-1]中Kth必然不在此，因为a[0,…,k/2-1]加上b[0,…,k/2-1]总共才k个数，而a[k/2-1]&gt;b[k/2-1]，也就是Kth只可能存在a[0,..,m-1]和b[k/2,…,n-1]中  </p>
+</blockquote>
+<p>Edge case：</p>
+<ol>
+<li>m==0;return b[k-1];</li>
+<li>k/2&gt;m,此时，A[index]index直接取m-1,使用a[m-1];</li>
+<li>递归过程中，k每次减去从两个数组中剔除数字的个数，所以k在自减，然后k/2分治在2个数组中，终止条件k&lt;=1,Kth等于此时两个数组的首个的最小值</li>
+<li>a[min(k/2,m)-1],b[index],index如果取值k/2-1会使分治的区域中无法包含Kth，因为采用k-min(k/2,m),此处代码中有详解</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> k=nums1.length+nums2.length;</div><div class="line">	<span class="keyword">int</span> m=nums1.length;</div><div class="line">	<span class="keyword">int</span> n=nums1.length;</div><div class="line">	<span class="keyword">if</span>(k%<span class="number">2</span>!=<span class="number">0</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> findKth(nums1, m, nums2, n,k/<span class="number">2</span>+<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span></div><div class="line">	&#123;	</div><div class="line">		<span class="keyword">return</span> (findKth(nums1, m, nums2, n, k/<span class="number">2</span>)+findKth(nums1, m, nums2, n, k/<span class="number">2</span>+<span class="number">1</span>));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">public</span>  <span class="keyword">double</span> <span class="title">findKth</span><span class="params">(<span class="keyword">int</span>[] a,<span class="keyword">int</span> alen, <span class="keyword">int</span>[] b,<span class="keyword">int</span> blen,  <span class="keyword">int</span> k)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span>(alen&gt;blen)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> findKth(b, blen, a, alen, k);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(alen==<span class="number">0</span>)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> b[k-<span class="number">1</span>];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(k==<span class="number">1</span>)</div><div class="line">		<span class="keyword">return</span> Math.min(a[<span class="number">0</span>],b[<span class="number">0</span>]);</div><div class="line"></div><div class="line">	<span class="comment">//&gt;&gt;游标pa,pb表示a,b的前pa,pb个数,将k进行分治，舍得pa+pb=k&lt;&lt;</span></div><div class="line">	<span class="keyword">int</span> pa=Math.min(k/<span class="number">2</span>, alen);</div><div class="line">	<span class="comment">//&gt;&gt;当k为奇数时，若pb=k/2，则pa和pb两个游标不能涵盖kth:(k=3,pa=1,pb=1,pa+pb&lt;k)&lt;&lt;</span></div><div class="line">	<span class="keyword">int</span> pb=k-pa;</div><div class="line">	<span class="keyword">if</span> (a[pa-<span class="number">1</span>]&lt;b[pb-<span class="number">1</span>]) &#123;</div><div class="line">		<span class="keyword">return</span> findKth(Arrays.copyOfRange(a, pa, alen), alen-pa, b, blen, k-pa);			</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (a[pa-<span class="number">1</span>]&gt;b[pb-<span class="number">1</span>]) &#123;</div><div class="line">		<span class="keyword">return</span> findKth(a, alen, Arrays.copyOfRange(b, pb, blen), blen-pb, k-pb);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> a[pa-<span class="number">1</span>];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>补充：关于copyOfRange()方法<br><code>public static long[] copyOfRange(long[] original, int from, int to)</code><br>参数：<br>original - 将要从其复制一个范围的数组<br>from - 要复制的范围的初始索引<code>（包括）!!!!!!</code><br>to - 要复制的范围的最后索引<code>（不包括）!!!!!!要复制全部的话，必须大于（不能等于最后索引）</code>（此索引可以位于数组范围之外）</p>
+<p><em>EOF 4</em></p>
+<h2 id="Longest-Palindromic-Substring"><a href="#Longest-Palindromic-Substring" class="headerlink" title="Longest Palindromic Substring"></a>Longest Palindromic Substring</h2><p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.<br><em>最长回文子串</em></p>
+<p>思路：<br>单字符即是回文，有初始条件，可以联想到用DP<br>用个boolean flag[i][j]二维数组，表示从i到j是不是回文</p>
+<ol>
+<li>i=j,是回文(a)</li>
+<li>j=i+1，如果字符相当，是回文(aa)</li>
+<li>j&gt;i+1, 判断string[j]=?string[i],相等的话，递归求flag[i+1][j-1]=?true,全部满足，则flag[i][j]=true(abba)</li>
+</ol>
+<p>注意，TLE问题，substring()时间消耗挺大，避免循环中使用</p>
+<blockquote>
+<p>public String substring(int beginIndex, int endIndex)<br>参数：<br>beginIndex - 起始索引（包括）<br>endIndex - 结束索引（不包括）<strong>又是不包括，注意+1</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">   <span class="keyword">if</span>(s == <span class="keyword">null</span> || s.length() &lt;= <span class="number">1</span>) &#123;</div><div class="line">       <span class="keyword">return</span> s;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">int</span> len = s.length();</div><div class="line">   <span class="keyword">int</span> start = <span class="number">0</span>, end = <span class="number">0</span>;</div><div class="line">   <span class="keyword">boolean</span>[][] flag = <span class="keyword">new</span> flag[len][len];</div><div class="line">   <span class="comment">// 间距0</span></div><div class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++) &#123;</div><div class="line">       flag[i][i] = <span class="keyword">true</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="comment">// 间距1</span></div><div class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;len;i++) &#123;</div><div class="line">       <span class="keyword">if</span>(s.charAt(i-<span class="number">1</span>) == s.charAt(i)) &#123;</div><div class="line">           flag[i-<span class="number">1</span>][i] = <span class="keyword">true</span>;</div><div class="line">           start = i-<span class="number">1</span>; end = i;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   &gt;&gt;间距&gt;=<span class="number">2</span>！用k表示j和i的间距，进行递增。每次从i=<span class="number">0</span>开始寻找i+k后的j，&lt;&lt;</div><div class="line">   &gt;&gt;判断flag[i][j]值，最终完成最大间距的flag[i][j]，其中j-i is max！&lt;&lt;</div><div class="line"></div><div class="line">   <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">2</span>;k&lt;len;k++) &#123;</div><div class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;len;i++) &#123;</div><div class="line">           <span class="keyword">int</span> j = i+k;</div><div class="line">           <span class="keyword">if</span>(s.charAt(i) == s.charAt(j) &amp;&amp; flag[i+<span class="number">1</span>][j-<span class="number">1</span>]) &#123;</div><div class="line">               flag[i][j] = <span class="keyword">true</span>;</div><div class="line">               start = i; end = j;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"><span class="keyword">return</span> s.substring(start,end);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><em>EOF 5</em></p>
+<h2 id="ZigZag-Conversion"><a href="#ZigZag-Conversion" class="headerlink" title="ZigZag Conversion"></a>ZigZag Conversion</h2><p>ZigZag，直接上个表格，就明了了，以<code>string=“abcdefghij”</code>为例：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">a</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center">g</th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">f</td>
+<td style="text-align:center">h</td>
+<td style="text-align:center"></td>
+<td>l</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:center">e</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">i</td>
+<td style="text-align:center">k</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">j</td>
+</tr>
+</tbody>
+</table>
+<p>思路： </p>
+<ul>
+<li>题目要求较简单，仅仅是返回一个经过Zigzag转化的字符串，所以考虑用StringBuilder</li>
+<li>zigzag特点是，斜着的部分的个数是row-2,首行和末行是没有斜位的</li>
+<li>StringBuilder一定要先初始化再用，否则报错，老是忘….<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">       <span class="function"><span class="keyword">public</span> String <span class="title">convert</span><span class="params">(String s, <span class="keyword">int</span> nRows)</span> </span>&#123;</div><div class="line">	<span class="keyword">char</span>[] c=s.toCharArray();</div><div class="line">	<span class="keyword">int</span> len=c.length;</div><div class="line">	StringBuilder[] StringBuilders=<span class="keyword">new</span> StringBuilder[nRows];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nRows; i++) &#123;</div><div class="line">		StringBuilders[i]=<span class="keyword">new</span> StringBuilder();</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">	<span class="keyword">while</span>(i&lt;len)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; nRows&amp;&amp;i&lt;len; j++) &#123;</div><div class="line">			StringBuilders[j].append(c[i++]);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = nRows-<span class="number">2</span>; j &gt;=<span class="number">1</span>&amp;&amp;i&lt;len; j--) &#123;</div><div class="line">			StringBuilders[j].append(c[i++]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; StringBuilders.length; j++) &#123;</div><div class="line">		StringBuilders[<span class="number">0</span>].append(StringBuilders[j]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> StringBuilders[<span class="number">0</span>].toString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/20/品味与人/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          品味与人
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/09/leetcode-1-2-3-7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode 1_2_3_7</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="leetcode-4-5-6-8" data-title="leetcode 4_5_6_8" data-url="http://www.lknny.com/2015/09/13/leetcode-4-5-6-8/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"lknny"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		2017 all by toto
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">&copy; Hexo</a>  
+	        <br>
+		<a href="https://github.com/litten/hexo-theme-yilia" target="_blank">&copy; yilia</a> 
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="���ض���"><img src="/img/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+
+  </div>
+</body>
+</html>
