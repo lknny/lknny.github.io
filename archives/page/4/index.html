@@ -3,19 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Thread_Part2 | toto</title>
+  <title>Archives | toto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ThreadThread系列分为1,2两个部分，上一篇写了关于线程控制的一些方法 以下为，Thread_part2，内容为线程关闭：">
-<meta name="keywords" content="java,thread">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Thread_Part2">
-<meta property="og:url" content="http://www.lknny.com/2015/09/05/Thread2/index.html">
+  <meta name="description" content="Never stop believing in yourself">
+<meta property="og:type" content="website">
+<meta property="og:title" content="toto">
+<meta property="og:url" content="http://www.lknny.com/archives/page/4/index.html">
 <meta property="og:site_name" content="toto">
-<meta property="og:description" content="ThreadThread系列分为1,2两个部分，上一篇写了关于线程控制的一些方法 以下为，Thread_part2，内容为线程关闭：">
-<meta property="og:updated_time" content="2015-09-05T06:13:50.000Z">
+<meta property="og:description" content="Never stop believing in yourself">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Thread_Part2">
-<meta name="twitter:description" content="ThreadThread系列分为1,2两个部分，上一篇写了关于线程控制的一些方法 以下为，Thread_part2，内容为线程关闭：">
+<meta name="twitter:title" content="toto">
+<meta name="twitter:description" content="Never stop believing in yourself">
   
     <link rel="alternative" href="/atom.xml" title="toto" type="application/atom+xml">
   
@@ -196,120 +194,61 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Thread2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/09/05/Thread2/" class="article-date">
-  	<time datetime="2015-09-05T06:05:40.000Z" itemprop="datePublished">2015-09-05</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/09/03/hexo1/" class="archive-article-date">
+  	<time datetime="2015-09-03T11:47:04.000Z" itemprop="datePublished">9月 3</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Thread_Part2
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/09/03/hexo1/">Hexo</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thread/">thread</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 	</div>
 
-        
+          
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/java/">java</a>
+	<a class="article-category-link" href="/categories/hexo/">hexo</a>
 	</div>
 
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h1><p>Thread系列分为1,2两个部分，上一篇写了关于线程控制的一些方法</p>
-<h2 id="以下为，Thread-part2，内容为线程关闭："><a href="#以下为，Thread-part2，内容为线程关闭：" class="headerlink" title="以下为，Thread_part2，内容为线程关闭："></a>以下为，Thread_part2，内容为线程关闭：</h2><a id="more"></a>
-<p>问题：一个线程，让他一直运行在主程序运行期间，如何安全有效的关闭线程？<br>常用做法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>(flag)</div><div class="line">&#123;</div><div class="line">XXX<span class="comment">//do something....</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">close</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">this</span>.flag=<span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>通过这种主动标志，有时候可以让线程停止。但是如果，在XXX处出现让线程阻塞的情况，显然close()方法无法关闭线程，而且会造成线程的阻塞。<br>比如，XXX可能是，A=B.accept();<br><strong>假如B没有accept到A，那么线程就会阻塞在这个地方</strong><br><strong>So</strong><br>解决方案：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">close</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">this</span>.flag=<span class="keyword">false</span>;</div><div class="line"><span class="keyword">new</span> A(XXX);<span class="comment">//此处应是任何可以使线程运行下去的方法，保证线程运行到while-loop对flag的判断</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当然在实现程序中，要比这复杂，但是基本思路是这样，欢迎批评指正！</p>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/09/06/HashMap/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          HashMap
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/09/05/Thread/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Thread_Part1</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Thread2" data-title="Thread_Part2" data-url="http://www.lknny.com/2015/09/05/Thread2/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"lknny"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
 
 </div>
       <footer id="footer">
@@ -337,8 +276,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
